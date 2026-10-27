@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/** A page section with a football-style eyebrow ("Matchday 03") and a display title. */
+/** A page section with a small matchday-style label and a bold headline. */
 export function Section({
   id,
   number,
@@ -15,20 +15,21 @@ export function Section({
   eyebrow: string;
   title: string;
   intro?: string;
-  tone?: "light" | "paper" | "dark";
+  tone?: "light" | "white" | "dark";
   children: ReactNode;
 }) {
-  const bg = tone === "dark" ? "bg-night text-white" : tone === "paper" ? "bg-paper" : "bg-white";
+  const bg = tone === "dark" ? "night text-white" : tone === "white" ? "bg-card" : "bg-page";
   const sub = tone === "dark" ? "text-white/70" : "text-ink-2";
+  const label = tone === "dark" ? "text-cyan" : "text-electric";
   return (
     <section id={id} className={`${bg} px-4 py-20 sm:px-6 sm:py-24`}>
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+          <p className={`text-xs font-bold uppercase tracking-[0.22em] ${label}`}>
             {number} · {eyebrow}
           </p>
-          <h2 className="mt-3 font-display text-5xl leading-none tracking-wide sm:text-6xl">{title}</h2>
-          <div className="gold-rule mt-4" />
+          <h2 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">{title}</h2>
+          <div className="cyan-rule mt-4" />
           {intro && <p className={`mt-5 text-base leading-relaxed sm:text-lg ${sub}`}>{intro}</p>}
         </div>
         {children}
@@ -38,15 +39,12 @@ export function Section({
 }
 
 export function Chip({ children, tone = "light" }: { children: ReactNode; tone?: "light" | "dark" }) {
-  const cls =
-    tone === "dark"
-      ? "border-white/15 bg-white/5 text-white/85"
-      : "border-line bg-white text-ink-2";
-  return <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium ${cls}`}>{children}</span>;
+  const cls = tone === "dark" ? "border-white/15 bg-white/5 text-white/85" : "border-line bg-page text-ink-2";
+  return <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${cls}`}>{children}</span>;
 }
 
 /** Small inline icons (no icon library needed). */
-export function Icon({ name, className = "h-4 w-4" }: { name: "github" | "linkedin" | "mail" | "code" | "arrow" | "phone" | "pin"; className?: string }) {
+export function Icon({ name, className = "h-4 w-4" }: { name: "github" | "linkedin" | "mail" | "code" | "arrow" | "phone" | "pin" | "star"; className?: string }) {
   const common = { className, fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, viewBox: "0 0 24 24", "aria-hidden": true };
   switch (name) {
     case "github":
@@ -85,6 +83,12 @@ export function Icon({ name, className = "h-4 w-4" }: { name: "github" | "linked
         <svg {...common}>
           <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
           <circle cx="12" cy="10" r="2.5" />
+        </svg>
+      );
+    case "star":
+      return (
+        <svg {...common} fill="currentColor" stroke="none">
+          <path d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5-4.8-4.6 6.6-.9z" />
         </svg>
       );
     default:

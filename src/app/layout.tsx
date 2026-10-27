@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 // Fonts are bundled with the app (Fontsource), so the build never depends on fetching from Google.
-import "@fontsource/bebas-neue/latin-400.css";
-import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/manrope/index.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: "#07122b" };
+export const viewport: Viewport = { themeColor: "#000040" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

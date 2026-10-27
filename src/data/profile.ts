@@ -20,6 +20,15 @@ export const profile = {
   rating: 89,
 };
 
+// Season strip under the hero (jump links), styled like a competition's season-by-season tiles.
+export const seasons = [
+  { label: "Featured", title: "SentryX on Synapt", href: "#matches" },
+  { label: "2026", title: "Prodapt · FDE", href: "#career" },
+  { label: "2025", title: "Best Paper Award", href: "#trophies" },
+  { label: "2024", title: "UPS · SDE Intern", href: "#career" },
+  { label: "2022–26", title: "B.E. CSE · REC", href: "#career" },
+];
+
 // FIFA-style attribute card: the six headline attributes.
 export const attributes = [
   { code: "AGT", label: "AI Agents", value: 91 },

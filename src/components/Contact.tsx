@@ -29,10 +29,10 @@ export function Contact() {
     }
   }
 
-  const field = "mt-1.5 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/35 outline-none transition focus:border-gold";
+  const field = "mt-1.5 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/35 outline-none transition focus:border-cyan";
 
   return (
-    <Section id="contact" number="06" eyebrow="Final whistle" title="Sign Me" intro="Open to Forward Deployed Engineering and AI engineering roles. Let's talk." tone="dark">
+    <Section id="contact" number="06" eyebrow="Final whistle" title="Get in touch" intro="Open to Forward Deployed Engineering and AI engineering roles. Let's talk." tone="dark">
       <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
         <div className="space-y-4">
           {[
@@ -46,17 +46,17 @@ export function Contact() {
               href={c.href}
               target={c.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-gold"
+              className="flex items-center gap-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10 transition hover:ring-cyan"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-night">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-cyan text-night">
                 <Icon name={c.icon} />
               </span>
-              <span className="break-all font-medium">{c.label}</span>
+              <span className="break-all font-semibold">{c.label}</span>
             </a>
           ))}
         </div>
 
-        <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+        <form onSubmit={onSubmit} noValidate className="rounded-2xl bg-white/[0.04] p-6 ring-1 ring-white/10">
           {/* honeypot: hidden from people, filled by bots */}
           <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
           <div className="grid gap-4 sm:grid-cols-2">
@@ -80,12 +80,12 @@ export function Contact() {
             <button
               type="submit"
               disabled={state.status === "sending"}
-              className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-night transition hover:bg-gold-soft disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-full bg-cyan px-6 py-3 text-sm font-bold text-night transition hover:bg-white disabled:opacity-60"
             >
               {state.status === "sending" ? "Sending…" : "Send message"} <Icon name="arrow" />
             </button>
             {state.message && (
-              <p role="status" className={`text-sm ${state.status === "sent" ? "text-gold" : "text-red-300"}`}>
+              <p role="status" className={`text-sm ${state.status === "sent" ? "text-cyan" : "text-red-300"}`}>
                 {state.message}
               </p>
             )}

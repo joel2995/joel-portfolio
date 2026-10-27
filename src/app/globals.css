@@ -1,36 +1,40 @@
 @import "tailwindcss";
 
-/* Madrid palette: home white, gold trim, royal blue, night navy (the Bernabéu under the floodlights) */
+/* Champions-night palette: deep navy, electric blue, cyan highlights, light-grey pages.
+   Madrid gold is kept only as a trophy accent. */
 :root {
-  --white: #fbfaf6;
-  --paper: #f3f1ea;
-  --ink: #0e1a33;
-  --ink-2: #44506a;
-  --muted: #6f7a90;
-  --gold: #e8b923;
-  --gold-soft: #f6e3a1;
-  --royal: #0f4c9e;
-  --night: #07122b;
-  --night-2: #0d1d42;
-  --line: #e4e0d4;
-  --pitch: #1f6b3a;
+  --page: #f1f3f8;
+  --card: #ffffff;
+  --ink: #1a313c;
+  --ink-2: #4a5d68;
+  --muted: #6b7c87;
+  --line: #dde2ec;
+  --night: #000040;
+  --night-2: #00005a;
+  --electric: #1f3bff;
+  --royal: #0a2a8c;
+  --cyan: #33e1ed;
+  --cyan-2: #00b8d4;
+  --gold: #d9a91a;
+  --gold-soft: #f6e7b0;
 }
 
 @theme inline {
-  --color-white: var(--white);
-  --color-paper: var(--paper);
+  --color-page: var(--page);
+  --color-card: var(--card);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-muted: var(--muted);
-  --color-gold: var(--gold);
-  --color-gold-soft: var(--gold-soft);
-  --color-royal: var(--royal);
+  --color-line: var(--line);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
-  --color-line: var(--line);
-  --color-pitch: var(--pitch);
-  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
-  --font-sans: "Inter Variable", Inter, system-ui, sans-serif;
+  --color-electric: var(--electric);
+  --color-royal: var(--royal);
+  --color-cyan: var(--cyan);
+  --color-cyan-2: var(--cyan-2);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --font-sans: "Manrope Variable", Manrope, system-ui, sans-serif;
 }
 
 html {
@@ -39,45 +43,50 @@ html {
 }
 
 body {
-  background: var(--white);
+  background: var(--page);
   color: var(--ink);
-  font-family: "Inter Variable", Inter, system-ui, sans-serif;
+  font-family: "Manrope Variable", Manrope, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--gold);
+  background: var(--cyan);
   color: var(--night);
 }
 
-/* Hero: stadium at night, two floodlights and the pitch glowing below */
-.stadium {
+/* Electric-blue header bar, like a matchday broadcast */
+.bar-electric {
+  background: linear-gradient(90deg, #0a1fd6 0%, var(--electric) 45%, var(--night-2) 100%);
+}
+
+/* Night hero: deep navy with a soft blue glow */
+.night {
   background:
-    radial-gradient(ellipse 55% 45% at 12% -5%, rgba(255, 244, 200, 0.2), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 88% -5%, rgba(255, 244, 200, 0.18), transparent 60%),
-    radial-gradient(ellipse 90% 55% at 50% 115%, rgba(31, 107, 58, 0.5), transparent 70%),
-    linear-gradient(180deg, var(--night) 0%, var(--night-2) 70%, #0b2a29 100%);
+    radial-gradient(ellipse 70% 60% at 85% 10%, rgba(31, 59, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(51, 225, 237, 0.12), transparent 60%),
+    var(--night);
 }
 
-.pitch-lines {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(180deg, transparent, black 40%, black 75%, transparent);
+/* Glowing curved lines drawn in the hero (see Hero.tsx) */
+.glow-line {
+  fill: none;
+  stroke: #2b4bff;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(43, 75, 255, 0.9));
 }
 
-/* Gold player card */
+.cyan-rule {
+  height: 4px;
+  width: 48px;
+  border-radius: 999px;
+  background: var(--cyan);
+}
+
+/* Player card: night-blue with a cyan edge */
 .player-card {
-  background: linear-gradient(160deg, #fbecb6 0%, #e8b923 45%, #a97c0c 100%);
+  background: linear-gradient(165deg, #0b2bd8 0%, #06117a 55%, #00004b 100%);
   clip-path: polygon(50% 0, 100% 7%, 100% 88%, 50% 100%, 0 88%, 0 7%);
-  filter: drop-shadow(0 30px 60px rgba(232, 185, 35, 0.22));
-}
-
-.gold-rule {
-  height: 3px;
-  width: 56px;
-  background: linear-gradient(90deg, var(--gold), transparent);
+  filter: drop-shadow(0 30px 60px rgba(31, 59, 255, 0.35));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -86,6 +95,11 @@ body {
   }
   .float {
     animation: float 6s ease-in-out infinite;
+  }
+  .draw {
+    stroke-dasharray: 1600;
+    stroke-dashoffset: 1600;
+    animation: draw 2.4s ease-out forwards;
   }
 }
 
@@ -107,5 +121,11 @@ body {
   }
   50% {
     transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
   }
 }
