@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
+/* Madrid palette: home white, gold trim, royal blue, night navy (the Bernabéu under the floodlights) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --white: #fbfaf6;
+  --paper: #f3f1ea;
+  --ink: #0e1a33;
+  --ink-2: #44506a;
+  --muted: #6f7a90;
+  --gold: #e8b923;
+  --gold-soft: #f6e3a1;
+  --royal: #0f4c9e;
+  --night: #07122b;
+  --night-2: #0d1d42;
+  --line: #e4e0d4;
+  --pitch: #1f6b3a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-white: var(--white);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-royal: var(--royal);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-line: var(--line);
+  --color-pitch: var(--pitch);
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-sans: "Inter Variable", Inter, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-family: "Inter Variable", Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--night);
+}
+
+/* Hero: stadium at night, two floodlights and the pitch glowing below */
+.stadium {
+  background:
+    radial-gradient(ellipse 55% 45% at 12% -5%, rgba(255, 244, 200, 0.2), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 88% -5%, rgba(255, 244, 200, 0.18), transparent 60%),
+    radial-gradient(ellipse 90% 55% at 50% 115%, rgba(31, 107, 58, 0.5), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 70%, #0b2a29 100%);
+}
+
+.pitch-lines {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, transparent, black 40%, black 75%, transparent);
+}
+
+/* Gold player card */
+.player-card {
+  background: linear-gradient(160deg, #fbecb6 0%, #e8b923 45%, #a97c0c 100%);
+  clip-path: polygon(50% 0, 100% 7%, 100% 88%, 50% 100%, 0 88%, 0 7%);
+  filter: drop-shadow(0 30px 60px rgba(232, 185, 35, 0.22));
+}
+
+.gold-rule {
+  height: 3px;
+  width: 56px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
 }
