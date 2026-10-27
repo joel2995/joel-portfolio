@@ -19,10 +19,10 @@ export function PlayerProfile() {
               <li key={a.code}>
                 <div className="flex justify-between text-sm">
                   <span className="font-semibold">{a.label}</span>
-                  <span className="font-extrabold text-electric">{a.value}</span>
+                  <span className="font-extrabold text-pitch">{a.value}</span>
                 </div>
                 <div className="mt-1.5 h-2 rounded-full bg-page">
-                  <div className="h-2 rounded-full bg-gradient-to-r from-electric to-cyan" style={{ width: `${a.value}%` }} />
+                  <div className="h-2 rounded-full bg-gradient-to-r from-pitch to-volt" style={{ width: `${a.value}%` }} />
                 </div>
               </li>
             ))}
@@ -34,7 +34,7 @@ export function PlayerProfile() {
               ["26", "Product findings"],
             ].map(([v, l]) => (
               <div key={l} className="rounded-xl bg-page p-3">
-                <p className="text-2xl font-extrabold text-electric">{v}</p>
+                <p className="text-2xl font-extrabold text-pitch">{v}</p>
                 <p className="text-xs font-medium text-muted">{l}</p>
               </div>
             ))}
@@ -62,23 +62,23 @@ export function PlayerProfile() {
 export function Career() {
   return (
     <Section id="career" number="02" eyebrow="Season by season" title="Career" tone="white">
-      <ol className="relative space-y-5 border-l-2 border-electric/30 pl-6 sm:pl-8">
+      <ol className="relative space-y-5 border-l-2 border-pitch/30 pl-6 sm:pl-8">
         {career.map((c) => (
           <li key={c.club} className="relative">
-            <span className="absolute -left-[33px] top-6 h-4 w-4 rounded-full border-4 border-card bg-cyan sm:-left-[41px]" aria-hidden />
+            <span className="absolute -left-[33px] top-6 h-4 w-4 rounded-full border-4 border-card bg-volt sm:-left-[41px]" aria-hidden />
             <div className="rounded-2xl bg-page p-6 ring-1 ring-line">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-2xl font-extrabold tracking-tight">{c.club}</h3>
                 <span className="text-sm font-bold text-muted">{c.period}</span>
               </div>
               <div className="mt-1 flex flex-wrap items-center gap-2">
-                <p className="font-bold text-electric">{c.role}</p>
-                <span className="rounded-full bg-night px-2.5 py-0.5 text-xs font-bold text-cyan">{c.status}</span>
+                <p className="font-bold text-pitch">{c.role}</p>
+                <span className="rounded-full bg-night px-2.5 py-0.5 text-xs font-bold text-volt">{c.status}</span>
               </div>
               <ul className="mt-4 space-y-2 text-ink-2">
                 {c.points.map((p) => (
                   <li key={p} className="flex gap-3 leading-relaxed">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-electric" aria-hidden />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pitch" aria-hidden />
                     {p}
                   </li>
                 ))}
@@ -106,12 +106,12 @@ export function Matches() {
         {projects.map((p) => (
           <article
             key={p.name}
-            className={`flex flex-col rounded-2xl p-6 sm:p-7 ${p.featured ? "bg-gradient-to-br from-[#0b2bd8] to-night-2 ring-1 ring-cyan/40 lg:col-span-2" : "bg-white/[0.04] ring-1 ring-white/10"}`}
+            className={`flex flex-col rounded-2xl p-6 sm:p-7 ${p.featured ? "bg-gradient-to-br from-[#123c2c] to-night-2 ring-1 ring-volt/40 lg:col-span-2" : "bg-white/[0.04] ring-1 ring-white/10"}`}
           >
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 {p.featured && (
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-cyan px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-night">
+                  <p className="inline-flex items-center gap-1.5 rounded-full bg-volt px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-night">
                     <Icon name="star" className="h-3 w-3" /> Player of the match
                   </p>
                 )}
@@ -125,7 +125,7 @@ export function Matches() {
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm font-bold transition hover:border-cyan hover:text-cyan"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-2 text-sm font-bold transition hover:border-volt hover:text-volt"
                   >
                     <Icon name="github" /> {l.label}
                   </a>
@@ -138,7 +138,7 @@ export function Matches() {
             <dl className={`mt-5 grid gap-3 ${p.stats.length > 3 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2 sm:grid-cols-3"}`}>
               {p.stats.map((s) => (
                 <div key={s.label} className="rounded-xl bg-white/[0.06] p-3 ring-1 ring-white/10">
-                  <dd className="text-2xl font-extrabold text-cyan">{s.value}</dd>
+                  <dd className="text-2xl font-extrabold text-volt">{s.value}</dd>
                   <dt className="text-xs font-medium text-white/60">{s.label}</dt>
                 </div>
               ))}
@@ -147,7 +147,7 @@ export function Matches() {
             <ul className="mt-5 space-y-2 text-sm leading-relaxed text-white/75">
               {p.points.map((pt) => (
                 <li key={pt} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" aria-hidden />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt" aria-hidden />
                   {pt}
                 </li>
               ))}
@@ -193,7 +193,7 @@ export function TrophyCabinet() {
             {certifications.map((c) => (
               <li key={c.title} className="border-b border-white/10 pb-3 last:border-0">
                 <p className="font-bold leading-snug">{c.title}</p>
-                <p className="text-sm text-cyan">{c.issuer}</p>
+                <p className="text-sm text-volt">{c.issuer}</p>
               </li>
             ))}
           </ul>
@@ -221,7 +221,7 @@ export function TrophyCabinet() {
           <ul className="mt-4 space-y-4">
             {publications.map((p) => (
               <li key={p.title}>
-                <p className="text-xs font-bold uppercase tracking-wider text-electric">{p.venue}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-pitch">{p.venue}</p>
                 <p className="mt-1 font-bold leading-snug">{p.title}</p>
                 <p className="text-sm text-muted">{p.note}</p>
               </li>
@@ -241,21 +241,21 @@ export function OffThePitch() {
       number="05"
       eyebrow="Off the pitch"
       title="Football, cricket & data"
-      intro="Sport is where I learned teamwork, patience and playing under pressure. Madridista always: the club that never stops believing until the final whistle."
+      intro="Sport is where I learned teamwork, patience and playing under pressure."
       tone="white"
     >
       <div className="grid gap-5 md:grid-cols-3">
         {offThePitch.map((o, i) => (
           <article key={o.title} className={`rounded-2xl p-6 ${i === 0 ? "night text-white" : "bg-page ring-1 ring-line"}`}>
-            <p className={`text-xs font-bold uppercase tracking-[0.18em] ${i === 0 ? "text-cyan" : "text-electric"}`}>{o.tag}</p>
+            <p className={`text-xs font-bold uppercase tracking-[0.18em] ${i === 0 ? "text-volt" : "text-pitch"}`}>{o.tag}</p>
             <h3 className="mt-2 text-2xl font-extrabold">{o.title}</h3>
             <p className={`mt-3 leading-relaxed ${i === 0 ? "text-white/80" : "text-ink-2"}`}>{o.text}</p>
           </article>
         ))}
       </div>
-      <blockquote className="mt-8 rounded-2xl border-l-4 border-cyan bg-night p-6 text-white">
-        <p className="text-2xl font-extrabold tracking-tight sm:text-3xl">&ldquo;Hasta el final, vamos Real.&rdquo;</p>
-        <p className="mt-2 text-sm text-white/65">Until the end. The same rule applies to shipping software: the last minute counts. ¡Hala Madrid!</p>
+      <blockquote className="mt-8 rounded-2xl border-l-4 border-volt bg-night p-6 text-white">
+        <p className="text-2xl font-extrabold tracking-tight sm:text-3xl">&ldquo;Play until the final whistle.&rdquo;</p>
+        <p className="mt-2 text-sm text-white/65">The same rule applies to shipping software: the last minute counts.</p>
       </blockquote>
     </Section>
   );
@@ -272,20 +272,17 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-4 text-sm font-semibold">
-          <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-cyan">
+          <a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-volt">
             <Icon name="github" /> GitHub
           </a>
-          <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-cyan">
+          <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-volt">
             <Icon name="linkedin" /> LinkedIn
           </a>
-          <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 hover:text-cyan">
+          <a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 hover:text-volt">
             <Icon name="mail" /> Email
           </a>
         </div>
       </div>
-      <p className="mx-auto mt-6 max-w-6xl text-xs text-white/40">
-        Fan-made design inspired by Champions League nights and Real Madrid. Not affiliated with UEFA or Real Madrid C.F.
-      </p>
     </footer>
   );
 }

@@ -20,7 +20,7 @@ export function Section({
 }) {
   const bg = tone === "dark" ? "night text-white" : tone === "white" ? "bg-card" : "bg-page";
   const sub = tone === "dark" ? "text-white/70" : "text-ink-2";
-  const label = tone === "dark" ? "text-cyan" : "text-electric";
+  const label = tone === "dark" ? "text-volt" : "text-pitch";
   return (
     <section id={id} className={`${bg} px-4 py-20 sm:px-6 sm:py-24`}>
       <div className="mx-auto max-w-6xl">
@@ -29,7 +29,7 @@ export function Section({
             {number} · {eyebrow}
           </p>
           <h2 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">{title}</h2>
-          <div className="cyan-rule mt-4" />
+          <div className="volt-rule mt-4" />
           {intro && <p className={`mt-5 text-base leading-relaxed sm:text-lg ${sub}`}>{intro}</p>}
         </div>
         {children}

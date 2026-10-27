@@ -1,20 +1,19 @@
 @import "tailwindcss";
 
-/* Champions-night palette: deep navy, electric blue, cyan highlights, light-grey pages.
-   Madrid gold is kept only as a trophy accent. */
+/* Floodlit-pitch palette: slate-ink nights, pitch green on light pages, volt lime under the lights.
+   Gold is kept only as a trophy accent. */
 :root {
-  --page: #f1f3f8;
+  --page: #f3f5f2;
   --card: #ffffff;
-  --ink: #1a313c;
-  --ink-2: #4a5d68;
-  --muted: #6b7c87;
-  --line: #dde2ec;
-  --night: #000040;
-  --night-2: #00005a;
-  --electric: #1f3bff;
-  --royal: #0a2a8c;
-  --cyan: #33e1ed;
-  --cyan-2: #00b8d4;
+  --ink: #15201b;
+  --ink-2: #475750;
+  --muted: #6c7a73;
+  --line: #dfe5e0;
+  --night: #0b1220;
+  --night-2: #111c2e;
+  --pitch: #0f8a5f;
+  --volt: #d4ff3a;
+  --volt-2: #a8d820;
   --gold: #d9a91a;
   --gold-soft: #f6e7b0;
 }
@@ -28,10 +27,9 @@
   --color-line: var(--line);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
-  --color-electric: var(--electric);
-  --color-royal: var(--royal);
-  --color-cyan: var(--cyan);
-  --color-cyan-2: var(--cyan-2);
+  --color-pitch: var(--pitch);
+  --color-volt: var(--volt);
+  --color-volt-2: var(--volt-2);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
   --font-sans: "Manrope Variable", Manrope, system-ui, sans-serif;
@@ -50,43 +48,52 @@ body {
 }
 
 ::selection {
-  background: var(--cyan);
+  background: var(--volt);
   color: var(--night);
 }
 
-/* Electric-blue header bar, like a matchday broadcast */
-.bar-electric {
-  background: linear-gradient(90deg, #0a1fd6 0%, var(--electric) 45%, var(--night-2) 100%);
+/* Header bar once scrolled: dark glass with a thin volt edge */
+.bar-pitch {
+  background: rgba(11, 18, 32, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 255, 58, 0.25);
 }
 
-/* Night hero: deep navy with a soft blue glow */
+/* Night sections: slate ink lit by two floodlights */
 .night {
   background:
-    radial-gradient(ellipse 70% 60% at 85% 10%, rgba(31, 59, 255, 0.35), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(51, 225, 237, 0.12), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 90% 0%, rgba(212, 255, 58, 0.14), transparent 60%),
+    radial-gradient(ellipse 55% 50% at 10% 0%, rgba(15, 138, 95, 0.22), transparent 60%),
     var(--night);
 }
 
-/* Glowing curved lines drawn in the hero (see Hero.tsx) */
-.glow-line {
+/* Pitch markings drawn in the hero (see Hero.tsx) */
+.pitch-line {
   fill: none;
-  stroke: #2b4bff;
+  stroke: rgba(255, 255, 255, 0.09);
   stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(43, 75, 255, 0.9));
+}
+.pass-line {
+  fill: none;
+  stroke: var(--volt);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 2 10;
+  filter: drop-shadow(0 0 6px rgba(212, 255, 58, 0.6));
 }
 
-.cyan-rule {
+.volt-rule {
   height: 4px;
   width: 48px;
   border-radius: 999px;
-  background: var(--cyan);
+  background: var(--volt);
 }
 
-/* Player card: night-blue with a cyan edge */
+/* Player card: deep green with a volt glow */
 .player-card {
-  background: linear-gradient(165deg, #0b2bd8 0%, #06117a 55%, #00004b 100%);
+  background: linear-gradient(165deg, #16573f 0%, #0f2e25 55%, #0b1220 100%);
   clip-path: polygon(50% 0, 100% 7%, 100% 88%, 50% 100%, 0 88%, 0 7%);
-  filter: drop-shadow(0 30px 60px rgba(31, 59, 255, 0.35));
+  filter: drop-shadow(0 30px 60px rgba(15, 138, 95, 0.35));
 }
 
 @media (prefers-reduced-motion: no-preference) {

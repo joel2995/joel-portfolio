@@ -1,6 +1,6 @@
 # Joel Sundarsingh A — Portfolio
 
-Football-themed (Madrid white, gold and royal blue) personal portfolio built with **Next.js 15, TypeScript and Tailwind v4**.
+Football-themed (floodlit pitch: slate ink, pitch green, volt lime) personal portfolio built with **Next.js 15, TypeScript and Tailwind v4**.
 
 - **Frontend:** single page — Kick-off (hero + player card), Scouting Report (attributes + skills), Career (transfer history), Signature Goals (projects), Silverware (awards, certifications, hackathons, publications), Off the Pitch (football, cricket), Sign Me (contact).
 - **Backend:** `POST /api/contact` (`src/app/api/contact/route.ts`) — validation, honeypot bot filter, per-IP rate limit, email delivery through [Resend](https://resend.com).
@@ -24,4 +24,3 @@ npm run dev        # http://localhost:3000
 
    Redeploy. Without these, the form still works and messages appear in Vercel's function logs.
 
-Fan-made styling; not affiliated with Real Madrid C.F.

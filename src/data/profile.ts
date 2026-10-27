@@ -186,8 +186,8 @@ export const publications = [
 export const offThePitch = [
   {
     title: "Football",
-    text: "Madridista to the core. Champions League nights at the Bernabéu are my favourite kind of pressure: stay calm, keep the shape, finish in the last minute. I play whenever I can.",
-    tag: "¡Hala Madrid!",
+    text: "My first love in sport. Big knockout nights are my favourite kind of pressure: stay calm, keep the shape, finish in the last minute. I play whenever I can.",
+    tag: "Matchday, every week",
   },
   {
     title: "Cricket",

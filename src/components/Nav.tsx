@@ -24,10 +24,10 @@ export function Nav() {
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-colors ${scrolled || open ? "bar-electric shadow-lg shadow-night/30" : "bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-colors ${scrolled || open ? "bar-pitch shadow-lg shadow-night/30" : "bg-transparent"}`}>
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6" aria-label="Main">
         <a href="#top" className="flex items-center gap-3 text-white">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-cyan text-sm font-extrabold text-night">
+          <span className="grid h-9 w-9 place-items-center rounded-full bg-volt text-sm font-extrabold text-night">
             {profile.shirtNumber}
           </span>
           <span className="text-lg font-extrabold tracking-tight">Joel Sundarsingh</span>
@@ -35,7 +35,7 @@ export function Nav() {
         <ul className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm font-semibold text-white/85 transition-colors hover:text-cyan">
+              <a href={l.href} className="text-sm font-semibold text-white/85 transition-colors hover:text-volt">
                 {l.label}
               </a>
             </li>
@@ -57,7 +57,7 @@ export function Nav() {
         <ul className="border-t border-white/10 px-4 pb-4 md:hidden">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={() => setOpen(false)} className="block py-3 font-semibold text-white/85 hover:text-cyan">
+              <a href={l.href} onClick={() => setOpen(false)} className="block py-3 font-semibold text-white/85 hover:text-volt">
                 {l.label}
               </a>
             </li>

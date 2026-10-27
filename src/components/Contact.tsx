@@ -29,7 +29,7 @@ export function Contact() {
     }
   }
 
-  const field = "mt-1.5 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/35 outline-none transition focus:border-cyan";
+  const field = "mt-1.5 w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-white placeholder-white/35 outline-none transition focus:border-volt";
 
   return (
     <Section id="contact" number="06" eyebrow="Final whistle" title="Get in touch" intro="Open to Forward Deployed Engineering and AI engineering roles. Let's talk." tone="dark">
@@ -46,9 +46,9 @@ export function Contact() {
               href={c.href}
               target={c.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className="flex items-center gap-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10 transition hover:ring-cyan"
+              className="flex items-center gap-4 rounded-2xl bg-white/[0.04] p-4 ring-1 ring-white/10 transition hover:ring-volt"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-cyan text-night">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-volt text-night">
                 <Icon name={c.icon} />
               </span>
               <span className="break-all font-semibold">{c.label}</span>
@@ -80,12 +80,12 @@ export function Contact() {
             <button
               type="submit"
               disabled={state.status === "sending"}
-              className="inline-flex items-center gap-2 rounded-full bg-cyan px-6 py-3 text-sm font-bold text-night transition hover:bg-white disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-full bg-volt px-6 py-3 text-sm font-bold text-night transition hover:bg-white disabled:opacity-60"
             >
               {state.status === "sending" ? "Sending…" : "Send message"} <Icon name="arrow" />
             </button>
             {state.message && (
-              <p role="status" className={`text-sm ${state.status === "sent" ? "text-cyan" : "text-red-300"}`}>
+              <p role="status" className={`text-sm ${state.status === "sent" ? "text-volt" : "text-red-300"}`}>
                 {state.message}
               </p>
             )}
